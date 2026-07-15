@@ -110,8 +110,8 @@ select option { background: #FFFFFF; color: #1A1613; }
 }
 
 .nav__logo { display: flex; align-items: center; }
-.nav__logo-stack { position: relative; display: inline-flex; height: 21px; }
-.nav__logo-stack img { height: 21px; width: auto; display: block; transition: opacity .25s ease; }
+.nav__logo-stack { position: relative; display: inline-flex; height: 28px; }
+.nav__logo-stack img { height: 28px; width: auto; display: block; transition: opacity .25s ease; }
 .nav__logo-stack img:last-child { position: absolute; left: 0; top: 0; }
 .nav__logo-stack .logo-white { opacity: 1; }
 .nav__logo-stack .logo-black { opacity: 0; }
@@ -460,17 +460,16 @@ select option { background: #FFFFFF; color: #1A1613; }
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 26px 52px;
-  max-width: 820px;
+  gap: 30px 52px;
+  max-width: 900px;
 }
 
-.clients__name {
-  font-weight: 600;
-  font-size: clamp(19px, 2.6vw, 24px);
-  color: #b0aa9e;
-  white-space: nowrap;
-  letter-spacing: -.01em;
-}
+/* All marks pre-processed to the same ink colour; heights tuned per logo
+   proportions so they read as one consistent size. */
+.clients__logo { height: 26px; width: auto; display: block; }
+.clients__logo--tall { height: 38px; }
+.clients__logo--squat { height: 30px; }
+.clients__logo--wide { height: 16px; }
 
 /* CTA block --------------------------------------------------------------------------------- */
 
@@ -804,7 +803,7 @@ select option { background: #FFFFFF; color: #1A1613; }
 }
 
 .footer__logo { display: inline-block; }
-.footer__logo img { height: 24px; margin-bottom: 22px; }
+.footer__logo img { height: 30px; margin-bottom: 22px; }
 
 .footer__tagline {
   font-weight: 500;
@@ -888,7 +887,11 @@ select option { background: #FFFFFF; color: #1A1613; }
   .founder { padding: 34px 28px 30px; }
   .contact-panel { padding: 34px 26px; }
 
-  .clients__row { gap: 22px 28px; }
+  .clients__row { gap: 24px 32px; }
+  .clients__logo { height: 22px; }
+  .clients__logo--tall { height: 32px; }
+  .clients__logo--squat { height: 26px; }
+  .clients__logo--wide { height: 13px; }
 }
 
 /* Reduced motion -------------------------------------------------------------------------------------------------- */

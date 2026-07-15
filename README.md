@@ -19,7 +19,8 @@ Plain static HTML/CSS/JS — no framework, no build step, no dependencies. You o
 │   ├── ub-logo-*.svg       Brand logos (white/black)
 │   ├── ub-icon-*.svg       Brand marks (white/black)
 │   ├── ub-hero.mp4         Hero video (scrubbed by scroll position)
-│   ├── founder.svg         Placeholder portrait — replace (see below)
+│   ├── joseph-mbedzi.jpg   Founder portrait (about page)
+│   ├── clients/            Trusted-by logos, normalised to brand ink
 │   └── og-image.png        Social share card (1200×630)
 ├── favicon.svg / .png      Orange brand mark
 ├── apple-touch-icon.png    White mark on dark
@@ -54,7 +55,7 @@ and create the Google Business Profile (see SEO checklist in the design handoff 
 ## Contact form — one-time activation required
 
 The enquiry form posts to [FormSubmit](https://formsubmit.co/) (free, no account), which
-forwards submissions to `joseph@underbridges.co.za`.
+forwards submissions to `info@underbridges.co.za`.
 
 **The first submission from the live domain triggers a confirmation email to that
 address — click the link in it once, and every submission after that is delivered.**
@@ -62,11 +63,14 @@ If FormSubmit is ever unreachable, the form shows an error with the direct email
 address instead of failing silently. To switch providers later (Formspree, Basin, a
 custom endpoint), change the URL in `assets/js/main.js` → the `fetch('https://formsubmit.co/...')` call.
 
-## Replacing the founder photo
+## Updating imagery
 
-`about/index.html` currently shows a branded placeholder (`assets/founder.svg`).
-Drop a portrait into `assets/` (e.g. `joseph.jpg`, portrait crop, ~680×800 or larger)
-and update the `<img>` inside `.founder__photo` in `about/index.html`.
+- **Founder photo** — `assets/joseph-mbedzi.jpg` (1020×1200, cropped for the about-page
+  card). To replace it, export a portrait crop at roughly the same ratio and overwrite the file.
+- **Client logos** — `assets/clients/*.png` are pre-processed to flat brand ink
+  (`#1A1613`) on transparency and trimmed to their content box. To add one, process a new
+  logo the same way and add an `<img class="clients__logo">` to the row in `index.html`
+  (use the `--tall` / `--squat` / `--wide` modifier classes to optically match sizes).
 
 ## Notes
 

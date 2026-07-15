@@ -216,7 +216,7 @@
         _subject: 'New enquiry — underbridges.co.za'
       };
 
-      fetch('https://formsubmit.co/ajax/joseph@underbridges.co.za', {
+      fetch('https://formsubmit.co/ajax/info@underbridges.co.za', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
