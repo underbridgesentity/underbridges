@@ -3,6 +3,26 @@
    Design system from "Under Bridges Website v4" (Claude Design)
    ========================================================================== */
 
+/* Fonts — self-hosted (SIL Open Font License), latin subset.
+   Schibsted Grotesk ships as a variable-weight file covering 400–700. */
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/assets/fonts/schibsted-grotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/instrument-serif-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --ub-accent: #FF5A00;
   --ub-bg: #F3F0E9;
@@ -852,9 +872,13 @@ select option { background: #FFFFFF; color: #1A1613; }
 }
 .footer__bottom .footer__entity { letter-spacing: .02em; }
 
+/* Honeypot field — visually removed, still present for bots */
+.hp { display: none; }
+
 /* 404 ------------------------------------------------------------------------------------------------------- */
 
 .notfound { padding-top: clamp(140px, 22vw, 220px); padding-bottom: 120px; }
+.notfound__cta { margin-top: 36px; }
 
 /* Responsive --------------------------------------------------------------------------------------------------- */
 

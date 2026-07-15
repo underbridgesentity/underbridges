@@ -14,6 +14,10 @@
 <meta property="og:description" content="Three things, done well. Creative solutions, digital builds, and event experiences — delivered by one team, concept to code.">
 <meta property="og:url" content="https://underbridges.co.za/services/">
 <meta property="og:image" content="https://underbridges.co.za/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Under Bridges — Creating since today.">
+<meta property="og:locale" content="en_ZA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Services | Under Bridges — Creative, Digital &amp; Events">
 <meta name="twitter:description" content="Three things, done well. Creative solutions, digital builds, and event experiences — delivered by one team, concept to code.">
@@ -23,10 +27,48 @@
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/main.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://underbridges.co.za/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://underbridges.co.za/services/" }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Creative Solutions",
+      "description": "Brand identity, corporate identity, campaign design, social media content, design systems, print collateral and event branding.",
+      "serviceType": "Brand identity design",
+      "areaServed": "South Africa",
+      "provider": { "@type": "ProfessionalService", "name": "Under Bridges", "url": "https://underbridges.co.za/" }
+    },
+    {
+      "@type": "Service",
+      "name": "Digital Builds",
+      "description": "Website design and development, web applications, event and RSVP platforms, member portals, custom tools and integrations.",
+      "serviceType": "Web development",
+      "areaServed": "South Africa",
+      "provider": { "@type": "ProfessionalService", "name": "Under Bridges", "url": "https://underbridges.co.za/" }
+    },
+    {
+      "@type": "Service",
+      "name": "Event Experiences",
+      "description": "Events created and curated end to end: concept, identity, staging, ticketing and RSVP journeys, and campaign content.",
+      "serviceType": "Event production",
+      "areaServed": "South Africa",
+      "provider": { "@type": "ProfessionalService", "name": "Under Bridges", "url": "https://underbridges.co.za/" }
+    }
+  ]
+}
+</script>
 </head>
 <body data-page="services">
 <a class="skip-link" href="#main">Skip to content</a>

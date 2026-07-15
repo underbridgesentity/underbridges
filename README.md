@@ -72,10 +72,25 @@ custom endpoint), change the URL in `assets/js/main.js` → the `fetch('https://
   logo the same way and add an `<img class="clients__logo">` to the row in `index.html`
   (use the `--tall` / `--squat` / `--wide` modifier classes to optically match sizes).
 
+## Security
+
+- Security headers ship in two host-agnostic files: `vercel.json` (Vercel) and
+  `_headers` (Netlify / Cloudflare Pages). They set a strict Content-Security-Policy
+  (self-hosted everything; `connect-src` allows only FormSubmit), `nosniff`,
+  `frame-ancestors 'none'`, a locked-down Permissions-Policy, and HSTS.
+  **GitHub Pages cannot set custom headers** — prefer Vercel or Cloudflare Pages
+  for the headers to apply.
+- `/.well-known/security.txt` publishes the responsible-disclosure contact
+  (expires 2027-07-15 — bump it yearly).
+- The contact form has a honeypot field, native validation, and no secrets client-side.
+  FormSubmit applies its own spam filtering and rate limits.
+- No cookies, no analytics, no third-party requests except the form submission.
+
 ## Notes
 
 - Fonts: [Schibsted Grotesk](https://fonts.google.com/specimen/Schibsted+Grotesk) +
-  [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) via Google Fonts.
+  [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif), self-hosted
+  in `assets/fonts/` (latin subset, SIL Open Font License) — no Google Fonts requests.
 - The hero video is fetched as a blob and scrubbed via `currentTime` as you scroll.
   For smoother scrubbing, re-encode the mp4 with a short keyframe interval
   (e.g. `ffmpeg -i in.mp4 -g 12 -crf 23 -movflags +faststart out.mp4`).
