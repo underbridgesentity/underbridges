@@ -311,14 +311,6 @@ select option { background: #FFFFFF; color: #1A1613; }
   color: #F3F0E9;
 }
 
-.hero__kicker {
-  font: 600 12px/1 'Schibsted Grotesk', sans-serif;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: #D9D3C8;
-  margin-bottom: 28px;
-}
-
 .hero__title {
   font-weight: 600;
   font-size: clamp(46px, 7.6vw, 116px);
