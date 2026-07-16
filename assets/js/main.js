@@ -213,10 +213,10 @@
         company: form.company.value,
         help: form.help.value,
         message: form.message.value,
-        _subject: 'New enquiry — underbridges.co.za'
+        _honey: form._honey ? form._honey.value : ''
       };
 
-      fetch('https://formsubmit.co/ajax/info@underbridges.co.za', {
+      fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)

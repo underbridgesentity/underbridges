@@ -52,16 +52,24 @@ The site is host-agnostic static files.
 After launch: submit `https://underbridges.co.za/sitemap.xml` in Google Search Console
 and create the Google Business Profile (see SEO checklist in the design handoff doc).
 
-## Contact form — one-time activation required
+## Contact form — Resend via serverless function
 
-The enquiry form posts to [FormSubmit](https://formsubmit.co/) (free, no account), which
-forwards submissions to `info@underbridges.co.za`.
+The enquiry form posts to `/api/contact` ([api/contact.js](api/contact.js)), a Vercel
+serverless function that validates the input (honeypot, lengths, email format) and
+sends the enquiry through [Resend](https://resend.com) to `info@underbridges.co.za`,
+from `website@portal.underbridges.co.za` (the domain verified in the Resend account)
+with the visitor's address as reply-to.
 
-**The first submission from the live domain triggers a confirmation email to that
-address — click the link in it once, and every submission after that is delivered.**
-If FormSubmit is ever unreachable, the form shows an error with the direct email
-address instead of failing silently. To switch providers later (Formspree, Basin, a
-custom endpoint), change the URL in `assets/js/main.js` → the `fetch('https://formsubmit.co/...')` call.
+- The Resend key lives in the **`RESEND_API_KEY` environment variable** on the Vercel
+  project (Settings → Environment Variables) — never commit it to this public repo.
+  If the key is ever exposed, rotate it in the Resend dashboard and update the env var.
+- Verifying the apex `underbridges.co.za` in Resend (DNS records from their dashboard)
+  would allow a cleaner from-address like `website@underbridges.co.za` — update the
+  `from` field in `api/contact.js` if you do.
+- If sending fails, the form shows an error with the direct email address instead of
+  failing silently.
+- Note: the local `python3 -m http.server` can't run the function — test form
+  submissions on a Vercel deployment (or with `vercel dev`).
 
 ## Updating imagery
 
