@@ -394,7 +394,7 @@ select option { background: #FFFFFF; color: #1A1613; }
 
 /* Service cards (home) ---------------------------------------------------------------- */
 
-.services-home { padding-bottom: 72px; }
+.services-home { padding-bottom: 110px; }
 
 .services-home__title {
   font-weight: 600;
@@ -409,8 +409,8 @@ select option { background: #FFFFFF; color: #1A1613; }
 .grid--3 { grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
 
 .scard {
-  display: block;
-  padding: 40px 36px 34px;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   background: #FFFFFF;
   border: 1.5px solid rgba(26, 22, 19, 0.12);
@@ -420,6 +420,19 @@ select option { background: #FFFFFF; color: #1A1613; }
 .scard:hover { transform: translateY(-6px); border-color: rgba(26, 22, 19, 0.28); }
 
 .scard--dark { background: var(--ub-dark); color: var(--ub-dark-ink); border: none; }
+
+.scard__media { margin: 0; overflow: hidden; }
+.scard__media img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) sepia(.16) contrast(1.04) brightness(.99);
+  transition: filter .5s ease, transform .5s ease;
+}
+.scard:hover .scard__media img { filter: none; transform: scale(1.03); }
+
+.scard__body { padding: 30px 36px 34px; display: flex; flex-direction: column; flex: 1; }
 .scard--dark:hover { border-color: transparent; }
 
 .scard__num { font: 600 14px/1 'General Sans', sans-serif; color: var(--ub-accent); }
@@ -445,39 +458,12 @@ select option { background: #FFFFFF; color: #1A1613; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 26px;
+  margin-top: auto;
+  padding-top: 26px;
   font: 600 13.5px/1 'General Sans', sans-serif;
   color: #1A1613;
 }
 .scard--dark .scard__link { color: var(--ub-dark-ink); }
-
-/* Craft strip — chamfer-cropped imagery, unified warm-mono grade ------------- */
-
-.craft { padding-bottom: 110px; }
-
-.craft__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
-  align-items: start;
-}
-
-.craft__item {
-  margin: 0;
-  overflow: hidden;
-  clip-path: var(--cham-l);
-}
-.craft__item--mid { margin-top: 30px; }
-
-.craft__item img {
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(1) sepia(.16) contrast(1.04) brightness(.99);
-  transition: filter .5s ease, transform .5s ease;
-}
-.craft__item:hover img { filter: none; transform: scale(1.03); }
 
 /* Trusted by ------------------------------------------------------------------------------ */
 
@@ -487,7 +473,7 @@ select option { background: #FFFFFF; color: #1A1613; }
   font: 600 12.5px/1 'General Sans', sans-serif;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: #9a948a;
+  color: #6C675E;
   margin-bottom: 38px;
 }
 
@@ -610,7 +596,7 @@ select option { background: #FFFFFF; color: #1A1613; }
   font: 600 11.5px/1 'General Sans', sans-serif;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: #9a948a;
+  color: #6C675E;
   margin-bottom: 6px;
 }
 .section-dark .svc__card-label { color: #8a857b; }
@@ -915,16 +901,14 @@ select option { background: #FFFFFF; color: #1A1613; }
 
   .founder__photo img { height: 300px; }
 
-  .scard { padding: 34px 28px 30px; }
+  .scard__body { padding: 28px 26px 28px; }
+  .scard__media img { height: 180px; }
   .svc__card { padding: 34px 26px; }
   .contact-card { padding: 34px 28px 30px; }
   .founder { padding: 34px 28px 30px; }
   .contact-panel { padding: 34px 26px; }
 
   .clients__row { gap: 24px 32px; }
-  .craft__grid { grid-template-columns: 1fr; gap: 18px; }
-  .craft__item--mid { margin-top: 0; }
-  .craft__item img { height: 240px; }
   .clients__logo { height: 22px; }
   .clients__logo--tall { height: 32px; }
   .clients__logo--squat { height: 26px; }
