@@ -482,6 +482,7 @@ select option { background: #FFFFFF; color: #1A1613; }
 .clients__logo--tall { height: 38px; }
 .clients__logo--squat { height: 30px; }
 .clients__logo--wide { height: 16px; }
+.clients__logo--xwide { height: 12px; }
 
 /* CTA block --------------------------------------------------------------------------------- */
 
@@ -908,6 +909,7 @@ select option { background: #FFFFFF; color: #1A1613; }
   .clients__logo--tall { height: 32px; }
   .clients__logo--squat { height: 26px; }
   .clients__logo--wide { height: 13px; }
+  .clients__logo--xwide { height: 10px; }
 }
 
 /* Reduced motion -------------------------------------------------------------------------------------------------- */
