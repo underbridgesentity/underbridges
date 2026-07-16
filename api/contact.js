@@ -52,9 +52,14 @@ export default async function handler(req, res) {
         text
       })
     });
-    if (!r.ok) return res.status(502).json({ error: 'Email service failed' });
+    if (!r.ok) {
+      const detail = await r.text().catch(() => '');
+      console.error('Resend send failed:', r.status, detail.slice(0, 500));
+      return res.status(502).json({ error: 'Email service failed' });
+    }
     return res.status(200).json({ ok: true });
   } catch (e) {
+    console.error('Resend request error:', e && e.message);
     return res.status(502).json({ error: 'Email service failed' });
   }
 }
