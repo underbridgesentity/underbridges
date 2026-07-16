@@ -57,15 +57,13 @@ and create the Google Business Profile (see SEO checklist in the design handoff 
 The enquiry form posts to `/api/contact` ([api/contact.js](api/contact.js)), a Vercel
 serverless function that validates the input (honeypot, lengths, email format) and
 sends the enquiry through [Resend](https://resend.com) to `info@underbridges.co.za`,
-from `website@portal.underbridges.co.za` (the domain verified in the Resend account)
-with the visitor's address as reply-to.
+from `website@underbridges.co.za` (the domain is verified in the Resend team the API
+key belongs to) with the visitor's address as reply-to.
 
 - The Resend key lives in the **`RESEND_API_KEY` environment variable** on the Vercel
   project (Settings → Environment Variables) — never commit it to this public repo.
-  If the key is ever exposed, rotate it in the Resend dashboard and update the env var.
-- Verifying the apex `underbridges.co.za` in Resend (DNS records from their dashboard)
-  would allow a cleaner from-address like `website@underbridges.co.za` — update the
-  `from` field in `api/contact.js` if you do.
+  If the key is ever exposed, rotate it in the Resend dashboard, update the env var,
+  and redeploy. The key's team must have `underbridges.co.za` verified under Domains.
 - If sending fails, the form shows an error with the direct email address instead of
   failing silently.
 - Note: the local `python3 -m http.server` can't run the function — test form
